@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Packages\DataInterface\src;
+namespace Taoran\DataInterface;
 
 class Util
 {

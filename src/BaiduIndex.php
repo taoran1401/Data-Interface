@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Packages\DataInterface\src;
-
-use App\Packages\DataInterface\src\Util;
+namespace Taoran\DataInterface;
 
 class BaiduIndex
 {
@@ -76,9 +74,8 @@ class BaiduIndex
             $data = $this->decryptData($data['data']);
             return $data;
         }
-        var_dump($data);exit;
-        return false;
-        //throw new \Exception($data['message'] ?? '');
+
+        throw new \Exception($data['message'] ?? '');
     }
 
     /**
@@ -119,7 +116,7 @@ class BaiduIndex
             // decrypt
             $userIndexes[$key]['all']['data'] = $this->decrypt($dataKey, $val['all']['data']);
             // format data
-            $dataScope = \App\Packages\DataInterface\src\Util::getDateByInterval($val['all']['startDate'], $val['all']['endDate'], 'day');
+            $dataScope = Util::getDateByInterval($val['all']['startDate'], $val['all']['endDate'], 'day');
             foreach ($dataScope as $_key => $date) {
                 $userIndexes[$key]['all']['formatData'][] = [
                     'word' => $word,
